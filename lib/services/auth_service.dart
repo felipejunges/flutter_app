@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter_app/models/auth.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:jwt_decode/jwt_decode.dart';
 
 class AuthService {
   final _key = "jwt331";
@@ -30,6 +31,17 @@ class AuthService {
 
     if (auth != null) return auth.token;
     return null;
+  }
+
+  Future<String> getNome() async {
+    var token = await getToken();
+    Map<String, dynamic> payload = Jwt.parseJwt(token);
+
+    print(payload);
+    print(payload["email"]);
+    print(payload["iss"]);
+
+    return payload["iss"];
   }
 
   dynamic myEncode(dynamic item) {

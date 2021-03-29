@@ -111,6 +111,11 @@ class _PaginaTresState extends State<PaginaTres> {
               onPressed: () => _contas(),
               child: Text("Contas"),
             ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () => _jwt(),
+              child: Text("JWT"),
+            ),
           ],
         ),
       ),
@@ -177,6 +182,10 @@ class _PaginaTresState extends State<PaginaTres> {
     var retorno = await MangosApiService.getContas();
 
     _toast(retorno);
+  }
+
+  _jwt() async {
+    await new AuthService().getNome();
   }
 
   _toast(mensagem) {
