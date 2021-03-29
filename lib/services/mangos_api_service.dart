@@ -7,8 +7,10 @@ import 'package:http/http.dart' as http;
 import 'auth_service.dart';
 
 class MangosApiService {
+  static String URL = "http://192.168.40.102:5000";
+
   static Future<bool> login(String email, String senha) async {
-    final url = Uri.parse('https://api.mangos.inf.br/api/Login');
+    final url = Uri.parse('$URL/api/Login');
     final headers = {"Content-Type": "application/json"};
     final body = {'email': email, 'senha': senha};
 
@@ -46,7 +48,7 @@ class MangosApiService {
   }
 
   static Future<bool> refresh() async {
-    final url = Uri.parse('https://api.mangos.inf.br/api/Login');
+    final url = Uri.parse('$URL/api/Login');
     final headers = {"Content-Type": "application/json"};
 
     final authService = new AuthService();
@@ -92,7 +94,7 @@ class MangosApiService {
     final authService = new AuthService();
     final auth = await authService.get();
 
-    final url = Uri.parse('https://api.mangos.inf.br/api/ContaBancaria');
+    final url = Uri.parse('$URL/api/ContaBancaria');
     var headers = {
       "Authorization": "Bearer ${auth?.token}",
     };

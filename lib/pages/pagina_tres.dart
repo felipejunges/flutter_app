@@ -12,9 +12,8 @@ class PaginaTres extends StatefulWidget {
 }
 
 class _PaginaTresState extends State<PaginaTres> {
-  final _tLogin = TextEditingController();
-
-  final _tSenha = TextEditingController();
+  final _tLogin = TextEditingController(text: "felipejunges@yahoo.com.br");
+  final _tSenha = TextEditingController(text: "felipe123");
 
   final _formKey = GlobalKey<FormState>();
 

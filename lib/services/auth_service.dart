@@ -38,10 +38,11 @@ class AuthService {
     Map<String, dynamic> payload = Jwt.parseJwt(token);
 
     print(payload);
+    print(payload["grupo_id"]);
     print(payload["email"]);
-    print(payload["iss"]);
+    print(payload["given_name"]);
 
-    return payload["iss"];
+    return payload["given_name"];
   }
 
   dynamic myEncode(dynamic item) {
